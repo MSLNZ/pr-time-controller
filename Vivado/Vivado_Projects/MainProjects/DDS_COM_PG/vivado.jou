@@ -1,0 +1,16 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Tue Feb  4 14:28:28 2020
+# Process ID: 5240
+# Current directory: D:/SInglePhotons/Vivado Projects/DDS_COM_PG
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7048 D:\SInglePhotons\Vivado Projects\DDS_COM_PG\DDS_COM_PG.xpr
+# Log file: D:/SInglePhotons/Vivado Projects/DDS_COM_PG/vivado.log
+# Journal file: D:/SInglePhotons/Vivado Projects/DDS_COM_PG\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {D:/SInglePhotons/Vivado Projects/DDS_COM_PG/DDS_COM_PG.xpr}
+update_compile_order -fileset sources_1
+ipx::open_ipxact_file D:/SInglePhotons/HW_IP/DDS_COM_TEST/component.xml
+open_bd_design {D:/SInglePhotons/Vivado Projects/DDS_COM_PG/DDS_COM_PG.srcs/sources_1/bd/DDS_COM/DDS_COM.bd}

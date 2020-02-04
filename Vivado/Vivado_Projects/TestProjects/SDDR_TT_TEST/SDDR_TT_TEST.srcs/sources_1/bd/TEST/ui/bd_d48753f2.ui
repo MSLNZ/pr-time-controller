@@ -1,0 +1,60 @@
+{
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0.19  2019-03-26 bk=1.5019 VDI=41 GEI=35 GUI=JA:9.0 non-TLS
+#  -string -flagsOSRD
+preplace port DDR -pg 1 -lvl 5 -x 1770 -y 180 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 5 -x 1770 -y 360 -defaultsOSRD
+preplace port T0 -pg 1 -lvl 0 -x -60 -y 660 -defaultsOSRD
+preplace port T1 -pg 1 -lvl 0 -x -60 -y 680 -defaultsOSRD
+preplace port T2 -pg 1 -lvl 0 -x -60 -y 700 -defaultsOSRD
+preplace port T3 -pg 1 -lvl 0 -x -60 -y 740 -defaultsOSRD
+preplace port T4 -pg 1 -lvl 0 -x -60 -y 960 -defaultsOSRD
+preplace port LISTENING -pg 1 -lvl 5 -x 1770 -y 670 -defaultsOSRD
+preplace port WAITING -pg 1 -lvl 5 -x 1770 -y 710 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 1 -x 170 -y 250 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 2 -x 550 -y 450 -defaultsOSRD
+preplace inst rst_ps7_0_100M -pg 1 -lvl 1 -x 170 -y 850 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 2 -x 550 -y 810 -defaultsOSRD
+preplace inst selectio_wiz_0 -pg 1 -lvl 3 -x 960 -y 670 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 2 -x 550 -y 990 -defaultsOSRD
+preplace inst selectio_wiz_1 -pg 1 -lvl 3 -x 960 -y 870 -defaultsOSRD
+preplace inst selectio_wiz_2 -pg 1 -lvl 3 -x 960 -y 1050 -defaultsOSRD
+preplace inst selectio_wiz_3 -pg 1 -lvl 3 -x 960 -y 1230 -defaultsOSRD
+preplace inst selectio_wiz_4 -pg 1 -lvl 3 -x 960 -y 1430 -defaultsOSRD
+preplace inst util_vector_logic_0 -pg 1 -lvl 2 -x 550 -y 1290 -defaultsOSRD
+preplace inst SDDR_TT_AXI_wrapper_0 -pg 1 -lvl 4 -x 1520 -y 620 -defaultsOSRD
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 4 -40 140 380 730 780 770 1160
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 -30 750 370
+preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 1 3 390 1230 700 1330 1190
+preplace netloc xlconstant_0_dout 1 2 1 750 710n
+preplace netloc clk_wiz_0_clk_out1 1 2 1 770 650n
+preplace netloc clk_wiz_0_clk_out2 1 2 2 730 570 1130
+preplace netloc selectio_wiz_1_data_in_to_device 1 3 1 1140 640n
+preplace netloc selectio_wiz_2_data_in_to_device 1 3 1 1150 660n
+preplace netloc selectio_wiz_3_data_in_to_device 1 3 1 1170 680n
+preplace netloc selectio_wiz_4_data_in_to_device 1 3 1 1180 700n
+preplace netloc selectio_wiz_0_data_in_to_device 1 3 1 1130 620n
+preplace netloc T0_1 1 0 3 NJ 660 NJ 660 720
+preplace netloc T1_1 1 0 3 NJ 680 NJ 680 790
+preplace netloc T2_1 1 0 3 NJ 700 NJ 700 760
+preplace netloc T3_1 1 0 3 NJ 740 NJ 740 720
+preplace netloc T4_1 1 0 3 NJ 960 400J 930 710
+preplace netloc SDDR_TT_AXI_wrapper_0_listening 1 4 1 1640 610n
+preplace netloc SDDR_TT_AXI_wrapper_0_waiting 1 4 1 1630 630n
+preplace netloc util_vector_logic_0_Res 1 2 1 740 690n
+preplace netloc processing_system7_0_FIXED_IO 1 1 4 NJ 220 NJ 220 N 220 1640
+preplace netloc processing_system7_0_DDR 1 1 4 NJ 200 NJ 200 N 200 1640
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 390 260n
+preplace netloc ps7_0_axi_periph_M00_AXI 1 2 2 NJ 410 1190
+preplace netloc ps7_0_axi_periph_M01_AXI 1 2 2 NJ 430 1180
+preplace netloc ps7_0_axi_periph_M02_AXI 1 2 2 NJ 450 1170
+preplace netloc ps7_0_axi_periph_M03_AXI 1 2 2 NJ 470 1150
+preplace netloc ps7_0_axi_periph_M04_AXI 1 2 2 NJ 490 1140
+levelinfo -pg 1 -60 170 550 960 1520 1770
+pagesize -pg 1 -db -bbox -sgen -130 -100 1900 1530
+"
+}
+{
+   "da_axi4_cnt":"10",
+   "da_ps7_cnt":"1"
+}
