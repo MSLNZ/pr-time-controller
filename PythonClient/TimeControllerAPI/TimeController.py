@@ -11,15 +11,21 @@ TDC_SFACTOR = 8
 TDC_FTIME = 1/(TDC_REF_CLK*TDC_SFACTOR)
 import logging
 class TimeController:
-    def __init__(self,host,port,mode):
+    """
+    Main class for all the Time Controller API
+    """
+    def __init__(self,host,port,mode,lvlshiftermode=0):
         """
 
-        Parameters
-        ----------
-        host : :class:`str`
-            Host address
-        port : :class:`int`
-            Port host is listening on
+        :param host: Host address
+        :param port: Port host is listening on
+        :param mode: Default tool suite or high resolution mode
+        :param lvlshiftermode: Defines whether to use the old level shifter boards (0) or new ones (1)
+        :type lvlshiftermode: :class:`int`
+        :type host: :class:`str`
+        :type port: :class:`int`
+        :type mode: :class:`int`
+
         """
         HOST = host
         PORT = port
@@ -29,7 +35,7 @@ class TimeController:
             self.MODE = mode
             self.websocket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
             self.websocket.connect((HOST,PORT))
-            self.websocket.sendall(("START"+str(int(mode))).encode())
+            self.websocket.sendall(("START"+str(int(mode))+str(lvlshiftermode)).encode())
             data = self.websocket.recv(1024).decode()
             if(data=="DONE"):
                 self.logger.info("Connection succeeded")
@@ -40,15 +46,18 @@ class TimeController:
             self.logger.error("Connection failed: "+str(e.args))
             self.connected=0
 
-    def reconnect(self,host,port,mode):
+    def reconnect(self,host,port,mode,lvlshiftermode=0):
         """
         Reconnect to the device
-        Parameters
-        ----------
-        host : :class:`str`
-            Host address
-        port : :class:`int`
-            Port host is listening on
+
+        :param host: Host address
+        :param port: Port host is listening on
+        :param mode: Default tool suite or high resolution mode\
+        :param lvlshiftermode: Defines whether to use the old level shifter boards (0) or new ones (1)
+        :type lvlshiftermode: :class:`int`
+        :type host: :class:`str`
+        :type port: :class:`int`
+        :type mode: :class:`int`
 
         """
         HOST = host
@@ -57,7 +66,7 @@ class TimeController:
             self.MODE = mode
             self.websocket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
             self.websocket.connect((HOST,PORT))
-            self.websocket.sendall(("START"+str(int(mode))).encode())
+            self.websocket.sendall(("START"+str(int(mode))+str(lvlshiftermode)).encode())
             data = self.websocket.recv(1024).decode()
             if(data=="DONE"):
                 self.logger.info("Connection succeeded")
@@ -71,17 +80,15 @@ class TimeController:
     def run_pulse_counter(self,window,mode):
         """
         Runs the pulse counter function of the time controller
-        Parameters
-        ----------
-        window : :class:`float`
-            Time window to count for
-        mode : :class:`int`
-            Triggering mode of type CounterMode
 
-        Returns
-        -------
-        :class: `list` of `int`
-            List of counts on each channel
+        :param window: Time window to count for
+        :param mode: Triggering mode of type CounterMode
+        :type window: :class:`float`
+        :type mode: :class:`int`
+
+        :return: List of counts on each channel
+        :rtype: :class: `list` of `int`
+
         """
         if(self.connected==0):
             self.logger.error("Not connected")
@@ -104,10 +111,10 @@ class TimeController:
     def start_iretimer(self):
         """
         Run the single channel inter-rising_edge timer
-        Returns
-        -------
-        :class:`float`
-            Time between rising edges
+
+        :return: Time between rising edges
+        :rtype: :class:`float`
+
         """
         if (self.connected == 0):
             self.logger.error("Not connected")
@@ -120,15 +127,13 @@ class TimeController:
     def iretimer_conv_to_time(self,data):
         """
         Converts the raw data from the IRETimer module into actual times in seconds
-        Parameters
-        ----------
-        data : :class:`dict`
-            Recieved dictionary containing data and meta information (length and what module it pertains to)
 
-        Returns
-        -------
-        :class:`list` of `float`
-            List of times in seconds
+        :param data: Recieved dictionary containing data and meta information (length and what module it pertains to)
+        :type data: :class:`dict`
+
+        :return: List of times in seconds
+        :rtype: :class:`list` of `float`
+
         """
         outputdata = []
         iterabledata = data["DAT"]
@@ -143,10 +148,10 @@ class TimeController:
     def acquire_iretimer_data(self):
         """
         Acquires latest set of 2048 data points from the timer
-        Returns
-        -------
-        :class:`list` of `float`
-            2048 times between rising edges, or as many as the FIFO buffer had inside
+
+        :return: 2048 times between rising edges, or as many as the FIFO buffer had inside
+        :rtype: :class:`list` of `float`
+
         """
         if (self.connected == 0):
             self.logger.error("Not connected")
@@ -171,8 +176,7 @@ class TimeController:
     def stop_iretimer(self):
         """
         Stop the single channel inter-rising_edge timer
-        Returns
-        -------
+
         """
         if (self.connected == 0):
             self.logger.error("Not connected")
@@ -186,10 +190,9 @@ class TimeController:
     def start_coincidence_timer(self,lineselect):
         """
         Stats the coincidence timer's data acquisiton
-        Parameters
-        ----------
-        lineselect : :class:`int`
-            Decides which line to treat as the start signal or whether just to pick the first detected line as a start signal.
+
+        :param lineselect: Decides which line to treat as the start signal or whether just to pick the first detected line as a start signal.
+        :type lineselect: :class:`int`
 
         """
         if (self.connected == 0):
@@ -216,10 +219,10 @@ class TimeController:
     def acquire_coincidence_timer_data(self):
         """
         Request acquired data points from the FIFO of the coincidence timer module (up to 2048 points)
-        Returns
-        -------
-        :class:`list` of `float`
-            Acquired times in seconds
+
+        :return: Acquired times in seconds
+        :rtype: :class:`list` of `float`
+
         """
         if (self.connected == 0):
             self.logger.error("Not connected")
@@ -244,10 +247,9 @@ class TimeController:
     def start_time_tagger(self,timeout):
         """
         Starts the time tagger module's passive data acquisition.
-        Parameters
-        ----------
-        timeout : :class:`float`
-            Time out for detection of channels in seconds
+
+        :param timeout: Time out for detection of channels in seconds
+        :type timeout: :class:`float`
 
         """
         if (self.connected == 0):
@@ -275,10 +277,10 @@ class TimeController:
     def acquire_time_tagger_data(self):
         """
         Request acquired data from the time tagger module, will acquire all available data upto 2048 points from the module.
-        Returns
-        -------
-        :class:`dict`
-        Dictionary containing tagged times for each channel along with time out states for each channel
+
+        :return: Dictionary containing tagged times for each channel along with time out states for each channel
+        :rtype: :class:`dict`
+
         """
         if (self.connected == 0):
             self.logger.error("Not connected")
@@ -304,15 +306,13 @@ class TimeController:
     def time_tagger_conv_to_time(self, data):
         """
         Converts raw data from the socket to individual times in seconds.
-        Parameters
-        ----------
-        data : :class:`dict`
-            Dictionary containing module identification, data length and list of raw data.
 
-        Returns
-        -------
-        :class:`dict`
-            Dictionary containing tagged times for each channel along with time out states for each channel
+        :param data: Dictionary containing module identification, data length and list of raw data.
+        :type data: :class:`dict`
+
+        :return: Dictionary containing tagged times for each channel along with time out states for each channel
+        :rtype: :class:`dict`
+
         """
         outputdata = {"T1": [], "T2": [], "T3": [], "T4": [], "TM": []}
         iterabledata = data["DAT"]
@@ -329,15 +329,13 @@ class TimeController:
     def time_tagger_break_data(self, data):
         """
         Breaks up the raw binary data points sent into each numerical quantity
-        Parameters
-        ----------
-        data : :class:`int`
-            Raw binary integer 172 bits wide containing all data concatenated together
 
-        Returns
-        -------
-        :class:`list` of `int`
-            Time tagger raw cycle times, fine times and time out states
+        :param data: Raw binary integer 172 bits wide containing all data concatenated together
+        :type data: :class:`int`
+
+        :return: Time tagger raw cycle times, fine times and time out states
+        :rtype: :class:`list` of `int`
+
         """
         #Unconcatenate all the data
         T1 = (data & 0x00000000000000000000000000000000000FFFFFFFF)
@@ -356,21 +354,19 @@ class TimeController:
     def set_signal_generator(self,channel,enabled,frequency,pwmode,dc,delay):
         """
         Configure a channel of the signal generator
-        Parameters
-        ----------
-        channel : :class:`int`
-            Channel to configure
-        enabled : :class:`int`
-            Whether this channel is enabled
-        frequency : :class:`float`
-            Frequency of this channel (Hz)
-        pwmode : :class:`int`
-            Decides whether the dc parameter specifies a duty cycle or a pulse width
-        dc : :class:`float`
-            Duty cycle or pulse width of the channel (0-1 or seconds)
-        delay : :class:`float`
-            The delay of this channel (seconds)
 
+        :param channel: Channel to configure
+        :param enabled: Whether this channel is enabled
+        :param frequency: Frequency of this channel (Hz)
+        :param pwmode: Decides whether the dc parameter specifies a duty cycle or a pulse width
+        :param dc: Duty cycle or pulse width of the channel (0-1 or seconds)
+        :param delay: The delay of this channel (seconds)
+        :type channel: :class:`int`
+        :type enabled: :class:`int`
+        :type frequency: :class:`float`
+        :type pwmode: :class:`int`
+        :type dc: :class:`float`
+        :type delay: :class:`float`
 
         """
         if (self.connected == 0):
@@ -390,13 +386,11 @@ class TimeController:
     def set_input_delay(self,channel,time):
         """
         Set the input delays of each input (including T0/TRIG and ETRIG)
-        Parameters
-        ----------
-        channel : :class:`int`
-            Channel to adjust delay of (0-5)
-        time : :class:`float`
-            Time in seconds (MAX OF 4.836e-9 seconds)
 
+        :param channel: Channel to adjust delay of (0-5)
+        :param time: Time in seconds (MAX OF 4.836e-9 seconds)
+        :type channel: :class:`int`
+        :type time: :class:`float`
 
         """
         if (self.connected == 0):
@@ -433,10 +427,9 @@ class TimeController:
     def HRST_set_delay(self,delays):
         """
         Manually set the delays of the high resolution single channel inter rising edge timer
-        Parameters
-        ----------
-        delays : :class:`list` of `int`
-            The delays for each channel
+
+        :param delays: The delays for each channel
+        :type delays: :class:`list` of `int`
 
         """
         if (self.connected == 0):
@@ -462,10 +455,10 @@ class TimeController:
     def HRST_poll(self):
         """
         Poll the last acquired data from the high resolution inter rising edge timer
-        Returns
-        -------
-        timedata : :class:`float`
-            Time in seconds between the two rising edges
+
+        :return: Time in seconds between the two rising edges
+        :rtype: :class:`float`
+
         """
         if (self.connected == 0):
             self.logger.error("Not connected")
@@ -494,22 +487,34 @@ class TimeController:
         self.websocket.sendall("XX".encode())
 
 class CounterMode(IntEnum):
+    """
+    Counter triggering mode
+    """
     MANUAL_TRIGGER = 0
     EXTERNAL_TRIGGER = 1
     EXTERNAL_TRIGGER_STOP = 2
 
 
 class SigGenMode(IntEnum):
+    """
+    Signal generator control modes, such as duty cycle mode, pulse width mode or channel enabled/disabled
+    """
     DUTY_CYCLE_MODE = 0
     PULSE_WIDTH_MODE = 1
     ENABLED = 1
     DISABLED = 0
 
 class LineSelectMode(IntEnum):
+    """
+    Line select mode for the coincidence timer, decides which line to treat as the start signal
+    """
     L1FIRST = 0
     L2FIRST = 1
     DONTCARE = 2
 class CHANNEL_SELECT(IntEnum):
+    """
+    Channel selection for all modules
+    """
     CH1 = 0
     CH2 = 1
     CH3 = 2
@@ -517,5 +522,8 @@ class CHANNEL_SELECT(IntEnum):
     T0 = 4
     E_TRIG = 5
 class TimeControllerMode(IntEnum):
+    """
+    Mode to initialize the time controller in
+    """
     DEFAULT_MODE = 0
     HIGH_RESOLUTION = 1

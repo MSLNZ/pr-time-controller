@@ -1,0 +1,14 @@
+{signal: [
+  {name: 'MCLK', wave: 'p................',period: 1},
+  {name: 'RESETN',wave: '0..1..........0..'},
+  {name: 'FSEL',wave: '0................'},
+  {name: 'BIDIR',wave: '0................'},
+  {name: 'T1',wave: '5....555.........',data:['0x0','0xC0','0x3F','0x0']},
+  {name: 'T2',wave: '5........555.....',data:['0x0','0xF8','0x7','0x0']},
+  {name:'D0[7:0]',wave:'x.........3....x.',data:['0x2']}, 
+  {name:'D1[7:0]',wave:'x.........3....x.',data:['0x5']},
+  {name:'CTIME[31:0]',wave:'x.........4....x.',data:['0x4']}, 
+  {name: 'DRDY',wave: '0.........1....0.'},
+  {name: 'WAITING',wave:'0.....1...0......'},
+  {name: 'ARMED',wave:'0...1.0..........'}
+]}

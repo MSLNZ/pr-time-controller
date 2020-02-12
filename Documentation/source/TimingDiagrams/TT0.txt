@@ -1,0 +1,16 @@
+{signal: [
+  {name: 'MCLK', wave: 'p................',period: 1},
+  {name: 'RESETN',wave: '0..1.............'},
+  {name: 'TIME_OUT[31:0]',wave: '5...x............',data:['Large Timeout Value']},
+  {name: 'DDR_T0[7:0]',wave: '7....777.........',data:['0x0','0xF0','0x0F','0x0']},
+  {name: 'DDR_T1[7:0]',wave: '7........777.....',data:['0x0','0xF0','0x0F','0x0']},
+  {name: 'DDR_T2[7:0]',wave: '7......777.......',data:['0x0','0xF0','0x0F','0x0']},
+  {name: 'DDR_T2[7:0]',wave: '7..........777...',data:['0x0','0xF0','0x0F','0x0']},
+  {name: 'DRDY',wave: '0...........1....'},
+  {name: 'TIMEOUTS[3:0]',wave: 'x...........8....',data:['0xF']},
+  {name: 'DATA(T1-T4,D0-D4)',wave:'x...........8....',data:['VALID']}
+],
+  head:{
+  tick:0
+  } 
+  }

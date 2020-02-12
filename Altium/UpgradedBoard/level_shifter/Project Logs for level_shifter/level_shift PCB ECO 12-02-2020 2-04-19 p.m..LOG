@@ -1,0 +1,117 @@
+Change component parameters: Designator = "J1"; Footprint = "142-0701-501"; UniqueID = "\UNCTHGXV"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Datasheet Link"; Value = "http://uk.rs-online.com/web/p/products/8859850"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Name"; Value = "Cinch"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "142-0701-501"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RS Part Number"; Value = "8859850"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RS Price/Stock"; Value = "http://uk.rs-online.com/web/p/products/8859850"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "VALUE"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "J7"; Footprint = "HDRRA12W64P254_2X6_1524X254X610P"; UniqueID = "\PFFEDTKU"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Datasheet Link"; Value = "http://suddendocs.samtec.com/catalog_english/tsw_th.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Height"; Value = "6.1mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Name"; Value = "SAMTEC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "TSW-106-08-L-D-RA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Part Number"; Value = "200-TSW10608LDRA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.com/Search/Refine.aspx?Keyword=200-TSW10608LDRA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RS Part Number"; Value = "7670934P"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RS Price/Stock"; Value = "http://uk.rs-online.com/web/p/products/7670934P"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "VALUE"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=J8(HDRRA12W64P254_2X6_1524X254X610P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://suddendocs.samtec.com/catalog_english/tsw_th.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "6.1mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "SAMTEC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "TSW-106-08-L-D-RA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "200-TSW10608LDRA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.com/Search/Refine.aspx?Keyword=200-TSW10608LDRA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Part Number"; Value = "7670934P"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Price/Stock"; Value = "http://uk.rs-online.com/web/p/products/7670934P"; VariantName = "[No Variations]"
+Added Component: Designator=J9(142-0701-501)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://uk.rs-online.com/web/p/products/8859850"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Cinch"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "142-0701-501"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Part Number"; Value = "8859850"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Price/Stock"; Value = "http://uk.rs-online.com/web/p/products/8859850"; VariantName = "[No Variations]"
+Added Component: Designator=J10(142-0701-501)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://uk.rs-online.com/web/p/products/8859850"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Cinch"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "142-0701-501"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Part Number"; Value = "8859850"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Price/Stock"; Value = "http://uk.rs-online.com/web/p/products/8859850"; VariantName = "[No Variations]"
+Added Component: Designator=J11(142-0701-501)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://uk.rs-online.com/web/p/products/8859850"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Cinch"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "142-0701-501"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Part Number"; Value = "8859850"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Price/Stock"; Value = "http://uk.rs-online.com/web/p/products/8859850"; VariantName = "[No Variations]"
+Added Component: Designator=J12(142-0701-501)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://uk.rs-online.com/web/p/products/8859850"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Cinch"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "142-0701-501"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Part Number"; Value = "8859850"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Price/Stock"; Value = "http://uk.rs-online.com/web/p/products/8859850"; VariantName = "[No Variations]"
+Added Component: Designator=J13(HDRRA12W64P254_2X6_1524X254X610P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://suddendocs.samtec.com/catalog_english/tsw_th.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "6.1mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "SAMTEC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "TSW-106-08-L-D-RA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "200-TSW10608LDRA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.com/Search/Refine.aspx?Keyword=200-TSW10608LDRA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Part Number"; Value = "7670934P"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Price/Stock"; Value = "http://uk.rs-online.com/web/p/products/7670934P"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VALUE"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=OP0 Pin=J8-1
+Added Pin To Net: NetName=OP1 Pin=J8-3
+Added Pin To Net: NetName=OP2 Pin=J8-5
+Added Pin To Net: NetName=OP3 Pin=J8-7
+Added Pin To Net: NetName=GND Pin=J8-9
+Added Pin To Net: NetName=GND Pin=J8-10
+Added Pin To Net: NetName=VCC Pin=J8-11
+Added Pin To Net: NetName=VCC Pin=J8-12
+Added Pin To Net: NetName=OP0 Pin=J9-1
+Added Pin To Net: NetName=GND Pin=J9-2
+Added Pin To Net: NetName=GND Pin=J9-3
+Added Pin To Net: NetName=GND Pin=J9-4
+Added Pin To Net: NetName=GND Pin=J9-5
+Added Pin To Net: NetName=OP1 Pin=J10-1
+Added Pin To Net: NetName=GND Pin=J10-2
+Added Pin To Net: NetName=GND Pin=J10-3
+Added Pin To Net: NetName=GND Pin=J10-4
+Added Pin To Net: NetName=GND Pin=J10-5
+Added Pin To Net: NetName=OP2 Pin=J11-1
+Added Pin To Net: NetName=GND Pin=J11-2
+Added Pin To Net: NetName=GND Pin=J11-3
+Added Pin To Net: NetName=GND Pin=J11-4
+Added Pin To Net: NetName=GND Pin=J11-5
+Added Pin To Net: NetName=OP3 Pin=J12-1
+Added Pin To Net: NetName=GND Pin=J12-2
+Added Pin To Net: NetName=GND Pin=J12-3
+Added Pin To Net: NetName=GND Pin=J12-4
+Added Pin To Net: NetName=GND Pin=J12-5
+Added Pin To Net: NetName=IL0 Pin=J13-1
+Added Pin To Net: NetName=IL1 Pin=J13-2
+Added Pin To Net: NetName=IL0 Pin=J13-3
+Added Pin To Net: NetName=IL1 Pin=J13-4
+Added Pin To Net: NetName=IL0 Pin=J13-5
+Added Pin To Net: NetName=IL1 Pin=J13-6
+Added Pin To Net: NetName=IL0 Pin=J13-7
+Added Pin To Net: NetName=IL1 Pin=J13-8
+Added Pin To Net: NetName=GND Pin=J13-9
+Added Pin To Net: NetName=GND Pin=J13-10
+Added Pin To Net: NetName=VCC Pin=J13-11
+Added Pin To Net: NetName=VCC Pin=J13-12
+Added Member To Class: ClassName=level_shifter Member=Component J1 CH0
+Added Member To Class: ClassName=level_shifter Member=Component J7 INPUTS
+Added Member To Class: ClassName=level_shifter Member=Component J8 OUTPUTS
+Added Member To Class: ClassName=level_shifter Member=Component J9 OP0
+Added Member To Class: ClassName=level_shifter Member=Component J10 OP1
+Added Member To Class: ClassName=level_shifter Member=Component J11 OP2
+Added Member To Class: ClassName=level_shifter Member=Component J12 OP3
+Added Member To Class: ClassName=level_shifter Member=Component J13 HR_INPUTS
+Added Room: Name=level_shifter

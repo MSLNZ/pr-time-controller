@@ -25,7 +25,8 @@ wheels/
 docs/_build/
 docs/_autosummary/
 docs/.doctrees/
-
+Documentation/build/
+Documentation/.idea/
 # Project settings
 .ropeproject/
 .project/

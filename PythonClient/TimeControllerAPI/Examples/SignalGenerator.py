@@ -10,10 +10,10 @@ from TimeController import *
 from time import sleep
 
 TC = TimeController("169.254.0.1",6050,TimeControllerMode.DEFAULT_MODE)
-TC.set_signal_generator(CHANNEL_SELECT.CH1,SigGenMode.ENABLED,100000,SigGenMode.DUTY_CYCLE_MODE,0.5,0.0)
+TC.set_signal_generator(CHANNEL_SELECT.CH1,SigGenMode.ENABLED,1000000,SigGenMode.DUTY_CYCLE_MODE,0.5,0.0)
 sleep(0.5)
-TC.set_signal_generator(CHANNEL_SELECT.CH2,SigGenMode.ENABLED,100000,SigGenMode.DUTY_CYCLE_MODE,0.5,0.0)
+TC.set_signal_generator(CHANNEL_SELECT.CH2,SigGenMode.ENABLED,2000000,SigGenMode.DUTY_CYCLE_MODE,0.1,0.0)
 sleep(0.5)
-TC.set_signal_generator(CHANNEL_SELECT.CH3,SigGenMode.ENABLED,100000,SigGenMode.DUTY_CYCLE_MODE,0.5,0.0)
+TC.set_signal_generator(CHANNEL_SELECT.CH3,SigGenMode.ENABLED,1000000,SigGenMode.DUTY_CYCLE_MODE,0.5,0.0)
 sleep(0.5)
-TC.set_signal_generator(CHANNEL_SELECT.CH4,SigGenMode.ENABLED,100000,SigGenMode.DUTY_CYCLE_MODE,0.5,0.0)
+TC.set_signal_generator(CHANNEL_SELECT.CH4,SigGenMode.ENABLED,1000000,SigGenMode.DUTY_CYCLE_MODE,0.5,0.0)

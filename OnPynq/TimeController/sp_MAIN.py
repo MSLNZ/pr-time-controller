@@ -1,5 +1,6 @@
 from SP import *
 from ST import *
+import os
 import socket
 import _thread
 from multiprocessing import Process,Lock
@@ -21,33 +22,28 @@ STProc = None
 COProc= None
 HRSTProc = None
 counter_wait = 0
-def sendToHost(data,l):
+def sendToHost(data,lock):
     """Send the specified string data to the client connected to the socket
 
-    Parameters
-    ----------
-    data : :class:`str`
-        Data to send
-    l : :class:`multiprocessing.Lock`
-        Thread lock
+    :param data: Data to send
+    :param lock: Thread lock
+    :type data: :class:`str`
+    :type lock: :class:`multiprocessing.Lock`
 
     """
-    l.acquire()
+    lock.acquire()
     conn.sendall(data.encode())
     #print(data)
-    l.release()
+    lock.release()
 def counter(window,mode,lock):
     """Starts and operates the pulse counter and sends counts to client connected to socket
 
-    Parameters
-    ----------
-    window : :class:`float`
-        The time window to count for (has no effect if the mode is 2)
-    mode : :class:`int`
-        The mode the counter is operating in, 0 - Manually started and coutns for window, 1 - Started by external trigger and counts for window, 2 - Started by external trigger and counts till stop trigger is pulsed.
-    lock : :class:`multiprocessing.Lock`
-        Lock to ensure all IO operations are thread safe.
-
+    :param window: The time window to count for (has no effect if the mode is 2)
+    :param mode: The mode the counter is operating in, 0 - Manually started and coutns for window, 1 - Started by external trigger and counts for window, 2 - Started by external trigger and counts till stop trigger is pulsed.
+    :param lock: Lock to ensure all IO operations are thread safe.
+    :type window: :class:`float`
+    :type mode: :class:`int`
+    :type lock: :class:`multiprocessing.Lock`
 
     """
 
@@ -79,12 +75,10 @@ def counter(window,mode,lock):
 def ST_MOD(lock,mode):
     """Operates the single channel inter rising edge timer and sends time data to the connected client.
 
-    Parameters
-    ----------
-    lock : :class:`multiprocessing.Lock`
-        Thread lock to ensure this thread can acquire Io resources without contention with other threads
-    mode : :class:`int`
-        Controls whether the module must be started, or polled or stopped (0,1,2)
+    :param lock: Thread lock to ensure this thread can acquire Io resources without contention with other threads
+    :param mode: Controls whether the module must be started, or polled or stopped (0,1,2)
+    :type lock: :class:`multiprocessing.Lock`
+    :type mode: :class:`int`
 
     """
     #print("Arming single channel inter_rising edge timer")
@@ -102,14 +96,12 @@ def ST_MOD(lock,mode):
 def CT_MOD(lock,lineselect,ctl):
     """Operates the two channel coincidence timer and sends time data back to the connected client
 
-    Parameters
-    ----------
-    lock : :class:`multiprocessing.Lock`
-        Thread lock to ensure this thread can acquire Io resources without contention with other threads
-    lineselect : :class:`int`
-        Which line to choose as the start signal (0: CH1, 1:CH2, 3:Whichever first)
-    ctl : :class:`int`
-        What to do with the coincidence timer (start, acquire data or stop [0,1,2])
+    :param lock: Thread lock to ensure this thread can acquire Io resources without contention with other threads
+    :param lineselect: Which line to choose as the start signal (0: CH1, 1:CH2, 3:Whichever first)
+    :param ctl: What to do with the coincidence timer (start, acquire data or stop [0,1,2])
+    :type lock: :class:`multiprocessing.Lock`
+    :type lineselect: :class:`int`
+    :type ctl: :class:`int`
 
     """
     global counter_wait
@@ -128,23 +120,8 @@ def CT_MOD(lock,lineselect,ctl):
 def PG_MOD(params):
     """Operates the signal generator on the fabric
 
-    Parameters
-    ----------
-    params : :class:`dict`
-        A JSON string consisting of a serialized dictionary with keys of type :class:`str` containing
-
-        :class:`int`
-            Channel with key 'ch'
-        :class:`int` or :class:`bool`
-            Channel enabled (1 or 0) (true or false) with key 'enable'
-        :class:`float`
-            Frequency of channel in Hz with key 'frequency'
-        :class:`float`
-            Duty cycle of channel (0-1) or pulse width in milliseconds with key 'dc'
-        :class:`float`
-            Delay of channel in seconds with key 'del'
-        :class:`bool`
-            A boolean stating whether the supplied float in DC is either a duty cycle or pulse width. Key: 'dcm'
+    :param params: A JSON string consisting of a serialized dictionary with keys of type :class:`str` containing all information to produce a signal.
+    :type params: :class:`dict`
 
     """
     print('Starting sig gen')
@@ -171,14 +148,12 @@ def PG_MOD(params):
 def TT_MOD(time,lock,mode):
     """Operates the time tagger and sends time information to the connected client
 
-    Parameters
-    ----------
-    time : :class:`int`
-        The time out in ref clock cycles of the time tagger
-    lock : :class:`multiprocessing.Lock`
-        Thread lock to ensure this thread can acquire Io resources without contention with other threads
-    mode : :class:`int`
-        What to do with the time tagger( start, acquire data or stop it[0,1,2])
+    :param time: The time out in ref clock cycles of the time tagger
+    :param lock: Thread lock to ensure this thread can acquire Io resources without contention with other threads
+    :param mode: What to do with the time tagger( start, acquire data or stop it[0,1,2])
+    :type time: :class:`int`
+    :type lock: :class:`multiprocessing.Lock`
+    :type mode: :class:`int`
 
     """
     global counter_wait
@@ -201,26 +176,21 @@ def TT_MOD(time,lock,mode):
 def DD_IDELAY(channel,tap0,tap1):
     """Operates the input delay hardware module
 
-    Parameters
-    ----------
-    channel : :class:`int`
-        Channel to set the delay on
-    tap : :class:`int`
-        The delay line tap of the top stage
-    stage : :class:`int`
-        The number of delay line stages below the top stage that are fully active
-
-
+    :param channel: Channel to set the delay on
+    :param tap0: The first delay primitives' tap value
+    :param tap1: The cascaded delay primitve's tap value
+    :type channel: :class:`int`
+    :type tap0: :class:`int`
+    :type tap1: :class:`int`
 
     """
     SPT.DD_idelay(channel,tap0,tap1)
 def HRST_start(lock):
     """
     Start the high resolution inter rising edge timer
-    Parameters
-    ----------
-    lock : :class:`multiprocessing.lock`
-        Thread lock
+
+    :param lock: Thread lock
+    :type lock: :class:`multiprocessing.Lock`
 
     """
     while(1):
@@ -230,14 +200,14 @@ def HRST_start(lock):
 def HRST_change_delay(delays):
     """
     Change the input delays manually on the high resolution inter rising edge timer
-    Parameters
-    ----------
-    delays : :class:`list` of `int`
-        Delays for each replicated channel
+
+    :param delays: Delays for each replicated channel
+    :type delays: :class:`list` of :class:`int`
 
     """
     HRTools.set_delays(delays)
 def run():
+    os.chdir("/home/xilinx/TimeController/")
     while(1):
         try:
             with socket.socket(socket.AF_INET,socket.SOCK_STREAM) as s:#Set up socket
@@ -253,8 +223,9 @@ def run():
                 global CTProc
                 global COProc
                 global HRSTProc
+                global counter_wait
                 conn, addr = s.accept()#Accept an incoming client connection
-
+                counter_wait=0
                 with conn:
                     print("Connected by:",addr)
 
@@ -263,9 +234,15 @@ def run():
                         data = (conn.recv(1024)).decode()
                         print(data)
                         if not data: break
-                        if(data=="START0"):#If the start signal from the client is recieved for default tools
-                            SPT = SP_TOOLS()
+                        if(data[:6]=="START0"):#If the start signal from the client is recieved for default tools
+                            if(data[6]=="0"):
+                                SPT=SP_TOOLS(0)
+                                logger.info("Starting for old level shifters")
+                            else:
+                                SPT = SP_TOOLS(1)
+                                logger.info("Starting for new level shifter")
                             sendToHost("DONE",lock)
+                            #DO THIS
                             strt = 1
                         if(data=="START1"):
                             HRTools = ST()
@@ -354,32 +331,6 @@ def run():
                 TTP.terminate()
             strt = 0
             print("Something happened "+str(e))
-
-
-# class TimeController(object):
-#
-#     def __init__(self, host, port):
-#         self._socket = ...
-#
-#     def counts(self, channel, duration=1):
-#         """Reutn the counts for a channel
-#
-#         Parameters
-#         ----------
-#         channel
-#         duration
-#
-#         Returns
-#         -------
-#
-#         """
-#         self._socket.write('PC:{json}')
-#         pass
-#
-#
-# tagger = TimeController('169')
-# c = tagger.counts(1, 3)
-
 
 if __name__ == '__main__':
     run()

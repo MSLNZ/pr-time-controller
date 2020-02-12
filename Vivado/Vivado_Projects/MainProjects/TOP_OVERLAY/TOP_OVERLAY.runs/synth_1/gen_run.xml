@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1580767857">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1581468171">
   <File Type="PA-TCL" Name="SP_OV_wrapper.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="SP_OV_wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="SP_OV_wrapper_reports.tcl"/>
@@ -54,16 +54,16 @@
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
-  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
-    <Filter Type="Constrs"/>
-    <File Path="$PSRCDIR/constrs_1/new/PYNQ-Z1.xdc">
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_2">
+    <File Path="$PSRCDIR/constrs_2/imports/new/PYNQ-Z1_REV1_1.xdc">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PSRCDIR/constrs_1/new/PYNQ-Z1_REV1_1.xdc"/>
+        <Attr Name="ImportTime" Val="1580766175"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
       </FileInfo>
     </File>
     <Config>
-      <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/PYNQ-Z1.xdc"/>
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
   </FileSet>

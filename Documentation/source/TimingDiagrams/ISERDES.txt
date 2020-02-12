@@ -1,0 +1,10 @@
+                                                                                                                {signal: [
+  {name: 'HS_CLK', wave: 'p...................',period: 1},
+  {name: 'DIV_CLK',wave: 'p....',period: 4},
+  {name: 'input',wave: '0.1...0......1.0....'},
+  {name: 'output[7:0]',wave:'6...6...6...6...6...',data:['0x0','0xE0','0x1F','0x0','0x78']}
+],
+  head:{
+  tick:0
+  } 
+  }

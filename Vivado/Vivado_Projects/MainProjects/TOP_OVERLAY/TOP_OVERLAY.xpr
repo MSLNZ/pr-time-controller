@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="40" Path="D:/SInglePhotons/Vivado Projects/Data_Transfer/TOP_OVERLAY/TOP_OVERLAY.xpr">
+<Project Version="7" Minor="40" Path="D:/TimeController/Vivado/Vivado_Projects/MainProjects/TOP_OVERLAY/TOP_OVERLAY.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="f84157858ab74fe08402e3809c595de1"/>
@@ -23,17 +23,17 @@
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/../../../HW_IP/COUNTER_AXI"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/../../../HW_IP/DDS_AXI_PERIPH"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/../../../HW_IP/DDS_COM_TEST"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../../../../SInglePhotons/HW_IP/COUNTER_AXI"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../../../../SInglePhotons/HW_IP/DDS_AXI_PERIPH"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../../../../SInglePhotons/HW_IP/DDS_COM_TEST"/>
     <Option Name="IPRepoPath" Val="$PPRDIR/../../../HW_IP/DELAY8"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/../../../HW_IP/SDDR_CT"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/../../../HW_IP/SDDR_ST"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/../../../HW_IP/SDDR_TT"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/../../../HW_IP/SDDR_DESERIALIZER"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/../../../HW_IP/_Data_transference/SDDR_ST_AXI"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/../../../HW_IP/_Data_transference/SDDR_CT_AXI"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/../../../HW_IP/_Data_transference/SDDR_TT_AXI"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../../../../SInglePhotons/HW_IP/SDDR_CT"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../../../../SInglePhotons/HW_IP/SDDR_ST"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../../../../SInglePhotons/HW_IP/SDDR_TT"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../../../../SInglePhotons/HW_IP/SDDR_DESERIALIZER"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../../../../SInglePhotons/HW_IP/_Data_transference/SDDR_ST_AXI"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../../../../SInglePhotons/HW_IP/_Data_transference/SDDR_CT_AXI"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../../../../SInglePhotons/HW_IP/_Data_transference/SDDR_TT_AXI"/>
     <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
     <Option Name="IPCachePermission" Val="read"/>
     <Option Name="IPCachePermission" Val="write"/>
@@ -147,6 +147,19 @@
         <Option Name="TopAutoSet" Val="TRUE"/>
       </Config>
     </FileSet>
+    <FileSet Name="constrs_2" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_2">
+      <File Path="$PSRCDIR/constrs_2/imports/new/PYNQ-Z1_REV1_1.xdc">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PSRCDIR/constrs_1/new/PYNQ-Z1_REV1_1.xdc"/>
+          <Attr Name="ImportTime" Val="1580766175"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="ConstrsType" Val="XDC"/>
+      </Config>
+    </FileSet>
   </FileSets>
   <Simulators>
     <Simulator Name="XSim">
@@ -167,7 +180,7 @@
     </Simulator>
   </Simulators>
   <Runs Version="1" Minor="10">
-    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z020clg400-1" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true">
+    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z020clg400-1" ConstrsSet="constrs_2" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
         <Step Id="synth_design"/>
@@ -176,7 +189,7 @@
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2019"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-1" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true" GenFullBitstream="true">
+    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-1" ConstrsSet="constrs_2" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019"/>
         <Step Id="init_design"/>

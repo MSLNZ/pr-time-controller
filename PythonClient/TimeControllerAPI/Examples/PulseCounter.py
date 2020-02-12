@@ -10,7 +10,7 @@ The pulse counter has three modes:
 from TimeController import *
 from time import sleep
 
-TC = TimeController("169.254.0.1",6050,TimeControllerMode.DEFAULT_MODE)
+TC = TimeController("169.254.0.1",6050,TimeControllerMode.DEFAULT_MODE,0)
 while True:
     #cts = TC.run_pulse_counter(1,CounterMode.EXTERNAL_TRIGGER)
     cts = TC.run_pulse_counter(1,CounterMode.MANUAL_TRIGGER)

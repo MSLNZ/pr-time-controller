@@ -69,6 +69,7 @@ def updateFPS():
     global fpsv,fpss
     fpss=fpsv
 def acquireData():
+    #This is assuming no time outs occur, to ensure timed out channel's times dont get recorded, it is essential to check whether the channel has timed out (time out states are in the original dict) and NOT place that item into the list
     global data,curIndex,size,SPT
     while True:
         if (curIndex >= size):

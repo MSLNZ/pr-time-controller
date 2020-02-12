@@ -1,0 +1,15 @@
+Bill of Material for 
+On 13/02/2020 at 9:21:49 a.m.
+
+ Comment             Pattern     Quantity  Components
+------------------------------------------------------------------------------
+ 100nF               CAPC1005X56N     1    C3                           Capacitor            
+ CH0                 142-0701-501     1    J1                           Connector            
+ CH1                 142-0701-501     1    J2                           Connector            
+ CH2                 142-0701-501     1    J3                           Connector            
+ CH3                 142-0701-501     1    J4                           Connector            
+ E_TRIG              142-0701-501     1    J6                           Connector            
+ HR_INPUTS           HDRRA12W64P254_2X6_1524X254X610P    1    J13                          Connector            
+ INPUTS              HDRRA12W64P254_2X6_1524X254X610P    1    J7                           Connector            
+ SN74LV245APW        SOP65P640X120-20N    1    IC2                          Integrated Circuit   
+ T0                  142-0701-501     1    J5                           Connector            
